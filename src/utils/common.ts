@@ -26,8 +26,12 @@ export const getPaddingOrMarginStyle = (
   return style;
 };
 
-export const getFlexStyle = (flexSet: [FlexSet?, AlignItems?, FlexSet?]) => {
-  const flexSetValue: FlexSetType = {};
+export const getFlexStyle = (flexSet: [FlexSet, AlignItems, FlexSet]) => {
+  const flexSetValue: FlexSetType = {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    alignContent: 'flex-start',
+  };
 
   if (flexSet[0]?.length !== 0) {
     flexSetValue.justifyContent = `${flexSet[0]}`;

@@ -6,7 +6,7 @@ function FlexComponent({
   style,
   margin = [],
   padding = [],
-  flexSet = [],
+  flexSet = ['flex-start', 'flex-start', 'flex-start'],
   flexWrap,
   flexDirection = 'row',
 }: ComponentCssType) {

@@ -7,14 +7,16 @@ declare global {
     | 'flex-end'
     | 'space-around'
     | 'space-between'
-    | 'space-evenly';
+    | 'space-evenly'
+    | 'unset';
 
   export type AlignItems =
     | 'center'
     | 'baseline'
     | 'flex-end'
     | 'flex-start'
-    | 'stretch';
+    | 'stretch'
+    | 'unset';
 
   export type FlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
@@ -35,7 +37,7 @@ declare global {
   type ComponentCssType = {
     flexDirection?: FlexDirection;
     flexWrap?: FlexWrap;
-    flexSet?: [FlexSet?, AlignItems?, FlexSet?];
+    flexSet?: [FlexSet, AlignItems, FlexSet];
     children?: React.ReactNode;
     Gutter?: number;
     Col?: number;

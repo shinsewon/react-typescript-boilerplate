@@ -6,9 +6,9 @@ const useResponsive = () => {
   const isMobile = useMediaQuery({ maxWidth: 480 });
 
   const responseType = (...arg: number[]) => {
-    if (isDesktopSize && arg[0]) return arg[0];
-    if (isTablet && arg[1]) return arg[1];
-    if (isMobile && arg[2]) return arg[2];
+    if (isDesktopSize && Number.isNaN(Number(arg[0]))) return arg[0];
+    if (isTablet && Number.isNaN(Number(arg[1]))) return arg[1];
+    if (isMobile && Number.isNaN(Number(arg[2]))) return arg[2];
     return 0;
   };
 

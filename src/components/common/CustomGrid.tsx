@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import useWindowWidth from 'react-hook-use-window-width';
 import { useResponsive } from 'hooks';
@@ -6,14 +7,22 @@ const PcCol = 6.56;
 const MobileCol = 4.9295;
 const TabletCol = 4.0104;
 
-const CustomGrid = () => {
+function CustomGrid() {
   const { isDesktopSize, isTablet } = useResponsive();
   const windowWidth = useWindowWidth();
 
-  const column = Math.floor(
-    ((isDesktopSize ? PcCol : isTablet ? TabletCol : MobileCol) / 100) *
-      windowWidth,
-  );
+  const deviceSize = () => {
+    if (isDesktopSize) return PcCol;
+    if (isTablet) return TabletCol;
+    return MobileCol;
+  };
+
+  // const column = Math.floor(
+  //   ((isDesktopSize ? PcCol : isTablet ? TabletCol : MobileCol) / 100) *
+  //     windowWidth,
+  // );
+
+  const column = Math.floor((deviceSize() / 100) * windowWidth);
 
   return (
     <DivBox>
@@ -22,7 +31,7 @@ const CustomGrid = () => {
       })}
     </DivBox>
   );
-};
+}
 
 export default CustomGrid;
 

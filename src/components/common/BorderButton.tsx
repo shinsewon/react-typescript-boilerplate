@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 function BorderButton({
@@ -22,7 +21,7 @@ function BorderButton({
         height,
         border: `1px solid ${borderColor}`,
         backgroundColor,
-        borderRadius: borderRadius && borderRadius,
+        borderRadius,
         ...style,
       }}
       onClick={onClick}
@@ -51,8 +50,8 @@ const DefaultButton = styled.button<{
   cursor: pointer;
   &:hover {
     background-color: ${({ hoverBackgroundColor }) =>
-      hoverBackgroundColor || 'unset'};
-    color: ${({ hoverColor }) => hoverColor || 'unset'};
+      hoverBackgroundColor ?? 'unset'};
+    color: ${({ hoverColor }) => hoverColor ?? 'unset'};
   }
   &:active {
     opacity: 0.8;

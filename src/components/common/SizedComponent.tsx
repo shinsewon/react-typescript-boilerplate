@@ -18,12 +18,12 @@ function SizedComponent({
   const G = isDesktopSize ? 1.932 : isTablet ? 4.703 : 4.9295;
   const C = isDesktopSize ? 6.56 : isTablet ? 4.0104 : 3.75;
 
-  let _width = null;
+  let WIDTH = null;
 
   if (Gutter === 0 && Col === 0) {
-    _width = width;
+    WIDTH = width;
   } else {
-    _width = Math.floor(((Gutter * G + Col * C) / 100) * windowWidth);
+    WIDTH = Math.floor(((Gutter * G + Col * C) / 100) * windowWidth);
   }
 
   return (
@@ -31,7 +31,7 @@ function SizedComponent({
       style={{
         ...getPaddingOrMarginStyle(padding, 'padding'),
         ...getPaddingOrMarginStyle(margin, 'margin'),
-        width: _width,
+        width: WIDTH,
         height,
         ...style,
       }}
